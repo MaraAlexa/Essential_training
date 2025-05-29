@@ -10,3 +10,7 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+To follow the project, create codespaces in github https://github.com/LinkedInLearning/react-essential-training-5949338/codespaces. This creates a VS code editor in your browser. From there you can use the browser terminal to checckout different code at different parts of the course. For examplee, for chapter 4 , lesson 2:
+$ git checkout 04_02b
+This will update the code to go to that state of the lesson.
