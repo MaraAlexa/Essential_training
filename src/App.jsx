@@ -17,12 +17,12 @@ let moon = "🌙";
 function App() {
   // you set an initial state with useState("open")
   // create a status variable and a function setStatus that updates that state
-  const [ status, setStatus ] = useState("open");
+  const [ status, setStatus ] = useState(true);
   console.log(status);
   return (
     <div>
-      <h1>The restaurant is currently {status}</h1>
-      <button onClick={() => setStatus("closed")} style={{ backgroundColor: "white", color: "black" }}>Close Restaurant</button>
+      <h1>The restaurant is currently {" "} {status ? "open" : "closed"}</h1>
+      <button onClick={() => setStatus(!status)} style={{ backgroundColor: "white", color: "black" }}>{status ? "close" : "open"} Restaurant</button>
       <Header name="Mara" year={new Date().getFullYear()} />
       <Main dishes={dishObjects} />
     </div>
