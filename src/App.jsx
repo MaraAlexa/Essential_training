@@ -24,7 +24,7 @@ function App() {
       <h1>The restaurant is currently {" "} {status ? "open" : "closed"}</h1>
       <button onClick={() => setStatus(!status)} style={{ backgroundColor: "white", color: "black" }}>{status ? "close" : "open"} Restaurant</button>
       <Header name="Mara" year={new Date().getFullYear()} />
-      <Main dishes={dishObjects} openStatus={status} />
+      <Main dishes={dishObjects} openStatus={status} onStatus={setStatus} />
     </div>
     
   )
@@ -40,10 +40,12 @@ const dishObjects = items.map((dish, i) => ({
   title: dish
 }))
 
-function Main({dishes, openStatus}){
+function Main({dishes, openStatus, onStatus}){
   return (
     <>
       <div>
+        <p>This button calls the function setStatus that is being passed down to Main via props with the variable onStatus</p>
+        <button onClick={() => onStatus(true)}>I am a child componenet changing the state to the entire tree to open(true)</button>
       <h2>A wonderful new restaurant { openStatus ? "Open" : "Closed"}</h2>
       </div>
       <main>
