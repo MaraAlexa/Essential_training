@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 import './App.css'
 import chef from "./images/chef.png";
 
@@ -15,16 +15,25 @@ let language = "javascript";
 let moon = "🌙";
 
 function App() {
-  // you set an initial state with useState("open")
-  // create a status variable and a function setStatus that updates that state
-  const [ status, setStatus ] = useState(true);
-  console.log(status);
+  // create a toggle Reducer to handle state
+  const [status, toggle] = useReducer(
+    (status) => !status,
+    true
+  );
+
   return (
     <div>
       <h1>The restaurant is currently {" "} {status ? "open" : "closed"}</h1>
-      <button onClick={() => setStatus(!status)} style={{ backgroundColor: "white", color: "black" }}>{status ? "close" : "open"} Restaurant</button>
+      <button 
+       onClick={toggle} 
+       style={{ backgroundColor: "white", color: "black" }}>
+        {status ? "close" : "open"} Restaurant
+      </button>
       <Header name="Mara" year={new Date().getFullYear()} />
-      <Main dishes={dishObjects} openStatus={status} onStatus={setStatus} />
+      <Main 
+       dishes={dishObjects} 
+       openStatus={status} 
+       onStatus={toggle} />
     </div>
     
   )
