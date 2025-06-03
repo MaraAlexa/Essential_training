@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import './App.css'
 import chef from "./images/chef.png";
 
@@ -20,6 +20,10 @@ function App() {
     (status) => !status,
     true
   );
+
+  useEffect(() => {
+    console.log(`The restaurant is ${status ? "open" : "closed"}`)
+  }, [status]);
 
   return (
     <div>
@@ -54,7 +58,7 @@ function Main({dishes, openStatus, onStatus}){
     <>
       <div>
         <p>This button calls the function setStatus that is being passed down to Main via props with the variable onStatus</p>
-        <button onClick={() => onStatus(true)}>I am a child componenet changing the state to the entire tree to open(true)</button>
+        <button onClick={() => onStatus(true)}>I want to be Open (child component)</button>
       <h2>A wonderful new restaurant { openStatus ? "Open" : "Closed"}</h2>
       </div>
       <main>
